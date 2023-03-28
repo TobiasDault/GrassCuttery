@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgq36phgl7cia"]
+
+[ext_resource type="Script" path="res://Grass.gd" id="1_ltjdk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkl7n"]
+
+[node name="Grass" type="Area2D"]
+script = ExtResource("1_ltjdk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hkl7n")
