@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://iu3dyyk10qyp"]
+[gd_scene load_steps=4 format=3 uid="uid://iu3dyyk10qyp"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_h6t6d"]
+[ext_resource type="PackedScene" uid="uid://cgq36phgl7cia" path="res://grass.tscn" id="2_e34vo"]
+[ext_resource type="PackedScene" uid="uid://cdp0i55q3bhte" path="res://cutter.tscn" id="3_y2ckj"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_h6t6d")
+
+[node name="Grass" parent="." instance=ExtResource("2_e34vo")]
+position = Vector2(415, 202)
+
+[node name="Cutter" parent="." instance=ExtResource("3_y2ckj")]
+position = Vector2(390, 203)
+
+[connection signal="grass_cut" from="Grass" to="." method="_on_grass_grass_cut"]
+[connection signal="input_event" from="Cutter" to="Grass" method="_on_cutter_input_event"]
