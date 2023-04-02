@@ -9,23 +9,24 @@ signal grass_cut(grass_height)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	self.growths = "Uncuttable"
 	pass # Replace with function body.
-
-func calculate_grass_growth():
-	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	calculate_grass_growth()
 	pass
 
 # Receive signal from Cutter.
 func _on_cutter_input_event(viewport, event, shape_idx):
+	grass_cut.emit(self.growths)
+
+
+func _on_timer_timeout():
 	match self.growths:
-		# Overgrown has 50% reduction in coins
-		# Uncuttable should have nothing
-		# Cuttable gives 100% coins
-		"Overgrown": pass
-		"Uncuttable": pass
-		"Cuttable": pass
+		"Uncuttable":
+			self.growths = "Cuttable"
+		"Cuttable":
+			self.growths = "Overgrown"
+		"Overgrown":
+			self.growths = "Overgrown"
 	pass # Replace with function body.

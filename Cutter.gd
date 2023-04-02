@@ -1,8 +1,8 @@
 extends Area2D
 
 # Cutter Script
-# Sends signal to Grass to be cut
-# 
+# Up Next: Automatic Cutters
+# We need a UI for a shop where you can buy more cutters
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

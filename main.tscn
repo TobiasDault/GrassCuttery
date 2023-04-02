@@ -13,5 +13,12 @@ position = Vector2(415, 202)
 [node name="Cutter" parent="." instance=ExtResource("3_y2ckj")]
 position = Vector2(390, 203)
 
+[node name="WeatherTimer" type="Timer" parent="."]
+wait_time = 120.0
+autostart = true
+
+[node name="Background" type="Sprite2D" parent="."]
+
 [connection signal="grass_cut" from="Grass" to="." method="_on_grass_grass_cut"]
 [connection signal="input_event" from="Cutter" to="Grass" method="_on_cutter_input_event"]
+[connection signal="timeout" from="WeatherTimer" to="." method="_on_weather_timer_timeout"]
