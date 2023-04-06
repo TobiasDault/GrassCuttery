@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpgx3nfmmhaed"]
+
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_hqu3p"]
+[ext_resource type="PackedScene" uid="uid://cgq36phgl7cia" path="res://Scenes/grass.tscn" id="2_e34vo"]
+[ext_resource type="PackedScene" uid="uid://dbvm81rfe2sp1" path="res://Scenes/cutter.tscn" id="3_y2ckj"]
+[ext_resource type="FontFile" uid="uid://bno31ufym8g0" path="res://Fonts/Roboto/Roboto-Bold.ttf" id="4_dp8oh"]
+[ext_resource type="FontFile" uid="uid://dctyn7t4sgi31" path="res://Fonts/Roboto/Roboto-Black.ttf" id="5_4xhwe"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_hqu3p")
+
+[node name="Grass" parent="." instance=ExtResource("2_e34vo")]
+position = Vector2(415, 202)
+
+[node name="Cutter" parent="." instance=ExtResource("3_y2ckj")]
+position = Vector2(390, 203)
+
+[node name="WeatherTimer" type="Timer" parent="."]
+wait_time = 120.0
+autostart = true
+
+[node name="Background" type="Sprite2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+custom_minimum_size = Vector2(576, 1024)
+offset_right = 576.0
+offset_bottom = 1024.0
+color = Color(0.811765, 0.909804, 0.85098, 1)
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="Title" type="Label" parent="UI"]
+clip_contents = true
+custom_minimum_size = Vector2(576, 100)
+offset_top = 250.0
+offset_right = 576.0
+offset_bottom = 350.0
+theme_override_colors/font_color = Color(0.254902, 0.682353, 0.282353, 1)
+theme_override_fonts/font = ExtResource("4_dp8oh")
+theme_override_font_sizes/font_size = 50
+text = "Grass Cuttery"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButtons" type="Node2D" parent="UI"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MenuButtons"]
+custom_minimum_size = Vector2(576, 0)
+offset_top = 350.0
+offset_right = 576.0
+offset_bottom = 562.0
+
+[node name="Start" type="Button" parent="UI/MenuButtons/VBoxContainer"]
+custom_minimum_size = Vector2(576, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_4xhwe")
+theme_override_font_sizes/font_size = 50
+text = "Start"
+flat = true
+
+[node name="Settings" type="Button" parent="UI/MenuButtons/VBoxContainer"]
+custom_minimum_size = Vector2(576, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_4xhwe")
+theme_override_font_sizes/font_size = 50
+text = "Settings
+"
+flat = true
+
+[node name="Quit" type="Button" parent="UI/MenuButtons/VBoxContainer"]
+custom_minimum_size = Vector2(576, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_4xhwe")
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+flat = true
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[connection signal="grass_cut" from="Grass" to="." method="_on_grass_grass_cut"]
+[connection signal="input_event" from="Cutter" to="Grass" method="_on_cutter_input_event"]
+[connection signal="timeout" from="WeatherTimer" to="." method="_on_weather_timer_timeout"]
