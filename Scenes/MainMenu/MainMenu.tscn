@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://deql6x8n2h762"]
+
+[ext_resource type="FontFile" uid="uid://bno31ufym8g0" path="res://Fonts/Roboto/Roboto-Bold.ttf" id="1_dspw5"]
+[ext_resource type="Script" path="res://Scenes/MainMenu/Control.gd" id="2_lovvc"]
+[ext_resource type="FontFile" uid="uid://dctyn7t4sgi31" path="res://Fonts/Roboto/Roboto-Black.ttf" id="3_ain5y"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Sprite2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+custom_minimum_size = Vector2(576, 1024)
+offset_right = 576.0
+offset_bottom = 1024.0
+color = Color(0.811765, 0.909804, 0.85098, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(576, 100)
+layout_mode = 0
+offset_top = 250.0
+offset_right = 576.0
+offset_bottom = 350.0
+theme_override_colors/font_color = Color(0.254902, 0.682353, 0.282353, 1)
+theme_override_fonts/font = ExtResource("1_dspw5")
+theme_override_font_sizes/font_size = 50
+text = "Grass Cuttery"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_lovvc")
+
+[node name="MainMenu" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(576, 0)
+layout_mode = 0
+offset_top = 350.0
+offset_right = 576.0
+offset_bottom = 562.0
+
+[node name="StartButton" type="Button" parent="Control/MainMenu"]
+custom_minimum_size = Vector2(576, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ain5y")
+theme_override_font_sizes/font_size = 50
+text = "Start"
+flat = true
+
+[node name="SettingsButton" type="Button" parent="Control/MainMenu"]
+custom_minimum_size = Vector2(576, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ain5y")
+theme_override_font_sizes/font_size = 50
+text = "Settings
+"
+flat = true
+
+[node name="QuitButton" type="Button" parent="Control/MainMenu"]
+custom_minimum_size = Vector2(576, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ain5y")
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+flat = true
+
+[connection signal="pressed" from="Control/MainMenu/StartButton" to="Control" method="_on_start_button_pressed"]

@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="GrassCuttery"
-run/main_scene="res://Scenes/main.tscn"
+config/name="GrassCutteryRetry"
+run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
 
@@ -22,11 +22,6 @@ window/size/viewport_height=1024
 window/handheld/orientation=1
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
-
-[editor]
-
-version_control/plugin_name="GitPlugin"
-version_control/autoload_on_startup=true
 
 [rendering]
 
