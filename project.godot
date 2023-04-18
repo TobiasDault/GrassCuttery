@@ -11,7 +11,20 @@ config_version=4
 [application]
 
 config/name="GrassCuttery3.x"
+run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=576
+window/size/height=1024
+window/handheld/orientation="portrait"
+window/stretch/mode="2d"
+window/stretch/aspect="keep_width"
+
+[global]
+
+"main scene"=false
 
 [gui]
 
