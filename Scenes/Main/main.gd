@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var GrassBlade = load("res://Scenes/Main/grass_blade.tscn")
+onready var GrassBlade = load("res://Scenes/Main/GrassBlade.tscn")
 var grass_blades = []
 var start_position = Vector2()
 var end_position = Vector2()
@@ -11,7 +11,8 @@ const GROWTH_SPEED = 50.0  # Adjust this value to control the growth speed
 func _ready():
 	for i in range(NUM_BLADES):
 		var blade = GrassBlade.instantiate()
-		blade.position = Vector2(randf_range(0, get_viewport_rect().size.x), get_viewport_rect().size.y + (get_viewport_rect().size.y / 2))
+		var random = RandomNumberGenerator.new()
+		blade.position = Vector2(random.randf_range(0, get_viewport_rect().size.x), get_viewport_rect().size.y + (get_viewport_rect().size.y / 2))
 		add_child(blade)
 		grass_blades.append(blade)
 		
@@ -37,7 +38,7 @@ func cut_grass():
 		if cut_area.intersects(blade_area):
 			var intersection = cut_area.clip(blade_area)
 			var cut_height = intersection.size.y / blade_area.size.y
-			blade.material.set_shader_param("cut_area", Vector4(intersection.position.x / blade_area.size.x, cut_height, intersection.end.x / blade_area.size.x, 0.0))
+			blade.material.set_shader_param("cut_area", Vector3(intersection.position.x / blade_area.size.x, cut_height, intersection.end.x / blade_area.size.x))
 
 			coins_earned += int(cut_height * 100)
 
