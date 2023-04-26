@@ -26,7 +26,7 @@ func _on_Fertilizer_pressed():
 		memory.fertilizer["level"] += 1
 		memory.fertilizer["multiplier"] += 0.5 # Can be adjusted
 		fertilizer_label.text = "Current Level: " + str(memory.fertilizer["level"])
-		memory.fertilizer["cost"] *= 1.05 # arbitrary multiplier for scaling upgrade prices
+		memory.fertilizer["cost"] *= 1.15 # arbitrary multiplier for scaling upgrade prices
 		cost1_label.text = "Cost: " + str(int(memory.fertilizer["cost"]))
 		money_label.text = "Money: " + str(memory.money)
 	

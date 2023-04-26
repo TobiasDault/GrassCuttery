@@ -21,49 +21,53 @@ script = ExtResource( 2 )
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 576.0
 margin_bottom = 1024.0
-color = Color( 0.811765, 0.909804, 0.85098, 1 )
+color = Color( 0.529412, 0.807843, 0.921569, 1 )
 
 [node name="Title" type="Label" parent="."]
 margin_top = 100.0
 margin_right = 576.0
 margin_bottom = 195.0
-custom_colors/font_color = Color( 0.254902, 0.682353, 0.282353, 1 )
+custom_colors/font_color = Color( 0.0862745, 0.670588, 0.12549, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Settings"
 align = 1
 valign = 1
 
 [node name="CheckButton" type="CheckButton" parent="."]
-margin_left = 350.0
-margin_top = 250.0
-margin_right = 426.0
-margin_bottom = 290.0
+margin_left = 231.0
+margin_top = 299.0
+margin_right = 307.0
+margin_bottom = 339.0
 rect_scale = Vector2( 1.5, 1.5 )
 pressed = true
 
 [node name="Music" type="Label" parent="."]
-margin_left = 100.0
-margin_top = 250.0
-margin_right = 217.0
-margin_bottom = 300.0
+margin_left = 229.0
+margin_top = 246.0
+margin_right = 346.0
+margin_bottom = 296.0
 custom_fonts/font = SubResource( 2 )
 text = "Music"
+align = 1
+valign = 1
 
 [node name="CheckButton2" type="CheckButton" parent="."]
-margin_left = 350.0
-margin_top = 400.0
-margin_right = 426.0
-margin_bottom = 440.0
+margin_left = 232.0
+margin_top = 434.0
+margin_right = 308.0
+margin_bottom = 474.0
 rect_scale = Vector2( 1.5, 1.5 )
 pressed = true
 
 [node name="SFX" type="Label" parent="."]
-margin_left = 100.0
-margin_top = 400.0
-margin_right = 217.0
-margin_bottom = 450.0
+margin_left = 157.0
+margin_top = 377.0
+margin_right = 424.0
+margin_bottom = 427.0
 custom_fonts/font = SubResource( 2 )
 text = "Sound Effects"
+align = 1
+valign = 1
 
 [node name="Back" type="Button" parent="."]
 margin_left = 125.0

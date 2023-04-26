@@ -14,3 +14,7 @@ like scrolling Reddit, staring at the wall, or doing your job.
 Stemming from a joke statement said among a group of students in a Software
 Engineering class, GrassCuttery brings you only the finest ~~floral screams~~
 smell of cut grass.
+
+
+Soil graphics sourced from "Free Tileset Pack" by pulkitverma
+https://pulkitverma.itch.io/free-tileset-pack

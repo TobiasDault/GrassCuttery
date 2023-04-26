@@ -6,7 +6,7 @@ extends Node
 # memory.ferilizer["cost"] = 0
 # pretty nifty
 
-var money: = 999999 # FOR TESTING PURPOSES
+var money: = 0 # FOR TESTING PURPOSES
 var firstTime = true
 var grassHeight: = 0
 var fertilizer ={ # I prefered using a dictionary over making a ton of variables, which I believe will make things less cluttered
