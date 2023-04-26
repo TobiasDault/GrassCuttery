@@ -5,6 +5,7 @@ onready var fertilizer_label = $FertilizerCont/Level1
 onready var irrigation_label = $IrrigationCont/Level2
 onready var cost1_lable = $FertilizerCont/Cost1
 onready var cost2_lable = $IrrigationCont/Cost2
+onready var autoMulti_label = $AutoGrowCont/autoMultiLabel
 onready var memory = $"/root/Memory"
 
 # Called when the node enters the scene tree for the first time.
@@ -15,6 +16,8 @@ func _ready():
 	
 	irrigation_label.text = "Current Level: " + str(int(memory.irrigation["level"]))
 	cost2_lable.text = "Cost: " + str(int(memory.irrigation["cost"]))
+	
+	autoMulti_label.text = "Mutliplier: " + str(memory.autoMulti) + "x"
 
 func _on_Fertilizer_pressed():
 	if(memory.money >= memory.fertilizer["cost"]):
