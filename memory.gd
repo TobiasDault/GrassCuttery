@@ -1,6 +1,6 @@
 extends Node
 
-var money: = 0
+var money: = 999999
 var grassHeight: = 0
 var fertilizer ={
 	"cost" : 50,
