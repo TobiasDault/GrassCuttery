@@ -16,7 +16,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Money="*res://money.gd"
+Memory="*res://memory.gd"
 
 [display]
 

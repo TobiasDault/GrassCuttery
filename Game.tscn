@@ -342,4 +342,4 @@ margin_top = 200.0
 margin_right = 372.0
 margin_bottom = 243.0
 custom_fonts/font = SubResource( 15 )
-text = "Money: 0"
+text = "Money: "
