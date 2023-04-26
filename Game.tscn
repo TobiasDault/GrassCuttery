@@ -331,3 +331,8 @@ margin_bottom = 185.0
 custom_fonts/font = SubResource( 14 )
 text = "SHOP"
 flat = true
+
+[node name="MoneyLabel" type="Label" parent="."]
+margin_right = 59.0
+margin_bottom = 14.0
+text = "Money: 0"

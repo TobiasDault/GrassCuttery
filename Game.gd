@@ -3,6 +3,9 @@ extends Node2D
 onready var grass_sprites = get_tree().get_nodes_in_group("grass-sprites")
 var max_stage = 19
 var sprite_stages = {}
+onready var money_label = $MoneyLabel
+var i = 0
+var temp = 0
 
 func _ready():
 	grass_sprites = get_tree().get_nodes_in_group("grass-sprites")
@@ -23,17 +26,21 @@ func _input(event):
 	if event is InputEventMouseButton and event.pressed:
 		for sprite in grass_sprites:
 			sprite_stages[sprite] += 1
+			temp = sprite_stages[sprite]
 			if sprite_stages[sprite] > max_stage:
 				sprite_stages[sprite] = max_stage
+				temp = max_stage
 			sprite.frame = sprite_stages[sprite]
 			
 
 func _on_cut_button_pressed():
 	# Reset the stage of each sprite to 0
+	i += temp
+	#print("i: " + str(i))
 	for sprite in grass_sprites:
 		sprite_stages[sprite] = 0
 		sprite.frame = 0
-
+	money_label.text = "Money: " + str(i)
 func _on_BackButton_pressed():
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://MainMenu.tscn")
