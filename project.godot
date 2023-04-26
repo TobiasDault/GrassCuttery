@@ -10,19 +10,21 @@ config_version=4
 
 [application]
 
-config/name="GrassCuttery"
-run/main_scene="res://MainMenu.tscn"
+config/name="GrassCuttery3.x"
+run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
 [display]
 
 window/size/width=576
 window/size/height=1024
-window/size/test_width=288
-window/size/test_height=512
 window/handheld/orientation="portrait"
 window/stretch/mode="2d"
 window/stretch/aspect="keep_width"
+
+[global]
+
+"main scene"=false
 
 [gui]
 
@@ -31,8 +33,3 @@ common/drop_mouse_on_gui_input_disabled=true
 [physics]
 
 common/enable_pause_aware_picking=true
-
-[rendering]
-
-2d/snapping/use_gpu_pixel_snap=true
-environment/default_environment="res://default_env.tres"
