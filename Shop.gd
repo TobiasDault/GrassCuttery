@@ -15,17 +15,13 @@ onready var memory = $"/root/Memory"
 func _ready():
 	money_label.text = "Money: " + str(memory.money)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-func _on_Button1_pressed():
+func _on_Fertilizer_pressed():
 	fertilizer_level += 1
 	fertilizer_label.text = "Current Level: " + str(fertilizer_level)
 	fertilizer_cost *= 1.05
 	cost1_lable.text = "Cost: " + str(int(fertilizer_cost))
 	
-func _on_Button2_pressed():
+func _on_Irrigation_pressed():
 	irrigation_level += 1
 	irrigation_label.text = "Current Level: " + str(irrigation_level)
 	irrigation_cost *= 1.05
@@ -34,4 +30,3 @@ func _on_Button2_pressed():
 func _on_BackButton_pressed():
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://Game.tscn")
-	
