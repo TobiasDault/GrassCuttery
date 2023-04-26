@@ -4,10 +4,11 @@ onready var grass_sprites = get_tree().get_nodes_in_group("grass-sprites")
 var max_stage = 19
 var sprite_stages = {}
 onready var money_label = $MoneyLabel
-var i = 0
+onready var money = $"/root/Money"
 var temp = 0
 
 func _ready():
+	money_label.text = "Money: " + str(money.amount)
 	grass_sprites = get_tree().get_nodes_in_group("grass-sprites")
 	for sprite in grass_sprites:
 		sprite_stages[sprite] = 0
@@ -35,17 +36,18 @@ func _input(event):
 
 func _on_cut_button_pressed():
 	# Reset the stage of each sprite to 0
-	i += temp
+	money.amount += temp
 	#print("i: " + str(i))
 	for sprite in grass_sprites:
 		sprite_stages[sprite] = 0
 		sprite.frame = 0
-	money_label.text = "Money: " + str(i)
+	money_label.text = "Money: " + str(money.amount)
 func _on_BackButton_pressed():
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://MainMenu.tscn")
 
 func _on_ShopButton_pressed():
 # warning-ignore:return_value_discarded
+	
 	get_tree().change_scene("res://Shop.tscn")	
 	

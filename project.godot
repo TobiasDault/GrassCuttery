@@ -14,6 +14,10 @@ config/name="GrassCuttery3.x"
 run/main_scene="res://MainMenu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Money="*res://money.gd"
+
 [display]
 
 window/size/width=576
