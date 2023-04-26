@@ -1,20 +1,21 @@
 extends Node2D
 
 onready var grass_sprites = get_tree().get_nodes_in_group("grass-sprites")
-var max_stage = 19
+var max_stage = 19 # we have 19 frames of grass animation
 var sprite_stages = {}
 onready var money_label = $MoneyLabel
 onready var memory = $"/root/Memory"
-var temp = 0
+var temp = 0 # temperary variable used to hold the grass height before it gets added to "memory". This prevents insane multiplication going out of control
 
+# Called when the scene is loaded
 func _ready():
 	money_label.text = "Money: " + str(memory.money)
 	grass_sprites = get_tree().get_nodes_in_group("grass-sprites")
-	for sprite in grass_sprites:
+	for sprite in grass_sprites: # reseting the animation upon (re)loading the scene
 		sprite_stages[sprite] = 0
 		
 	var CutButton = get_node("CutButton")
-	CutButton.connect("pressed", self, "_on_cut_button_pressed")
+	CutButton.connect("pressed", self, "_on_cut_button_pressed") # linking buttons to functions
 	
 	var BackButton = get_node("BackButton")
 	BackButton.connect("pressed", self, "_on_BackButton_pressed")
@@ -23,13 +24,10 @@ func _ready():
 	ShopButton.connect("pressed", self, "_on_ShopButton_pressed")
 
 		
-func _input(event):
+func _input(event): # runs when MOUSE1 is clicked
 	if event is InputEventMouseButton and event.pressed:
-		grow()
-
-func grow():
-	memory.grassHeight += 1
-	updateGrass()
+		memory.grassHeight += 1
+		updateGrass()
 
 func updateGrass():
 	for sprite in grass_sprites:

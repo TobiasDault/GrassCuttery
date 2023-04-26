@@ -1,8 +1,14 @@
 extends Node
 
-var money: = 999999
+# This file is very cool. It implements Godot's "Singletons (Autoload)", but it basically has this scene that is always loaded.
+# It allows for any value we use here to be changed and accessed at any point by other files, just by calling it like the following
+# onready var memory = $"/root/Memory"
+# memory.ferilizer["cost"] = 0
+# pretty nifty
+
+var money: = 999999 # FOR TESTING PURPOSES
 var grassHeight: = 0
-var fertilizer ={
+var fertilizer ={ # I prefered using a dictionary over making a ton of variables, which I believe will make things less cluttered
 	"cost" : 50,
 	"level": 0
 }
@@ -13,14 +19,14 @@ var irrigation ={
 var autoGrow = false
 var autoMulti = 1
 var frame = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta): #runs every 0.016667s or 16.6667ms
+func _process(delta): #runs every frame (60fps)
 	frame += 1
-	if(autoGrow and frame > (60/autoMulti)):
+	if(autoGrow and frame > (60/autoMulti)): # +1 grassHeight per second with autoMulti value of 1 (default)
 		grassHeight += 1
-		frame = 0
+		frame = 0 # reset frame counter
