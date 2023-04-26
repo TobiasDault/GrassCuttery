@@ -17,6 +17,8 @@ config/icon="res://icon.png"
 [autoload]
 
 Memory="*res://memory.gd"
+MusicController="*res://MusicController.tscn"
+SfxController="*res://SFXController.tscn"
 
 [display]
 

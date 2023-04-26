@@ -69,4 +69,5 @@ text = "Quit"
 flat = true
 
 [connection signal="pressed" from="MenuButtons/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="MenuButtons/SettingsButton" to="." method="_on_SettingsButton_pressed"]
 [connection signal="pressed" from="MenuButtons/QuitButton" to="." method="_on_QuitButton_pressed"]

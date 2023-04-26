@@ -2,6 +2,7 @@ extends Node2D
 
 onready var grass_sprites = get_tree().get_nodes_in_group("grass-sprites")
 var max_stage = 19 # we have 19 frames of grass animation
+
 var sprite_stages = {}
 onready var money_label = $MoneyLabel
 onready var memory = $"/root/Memory"
@@ -9,6 +10,9 @@ var temp = 0 # temperary variable used to hold the grass height before it gets a
 
 # Called when the scene is loaded
 func _ready():
+	if(memory.firstTime):
+		MusicController.play_music()
+	memory.firstTime = false
 	money_label.text = "Money: " + str(memory.money)
 	grass_sprites = get_tree().get_nodes_in_group("grass-sprites")
 	for sprite in grass_sprites: # reseting the animation upon (re)loading the scene
@@ -26,12 +30,13 @@ func _ready():
 		
 func _input(event): # runs when MOUSE1 is clicked
 	if event is InputEventMouseButton and event.pressed:
+		SfxController.tap()
 		memory.grassHeight += 1
 		updateGrass()
 
-func updateGrass():
+func updateGrass(): # updates the grass' animation state to grassHeight
 	for sprite in grass_sprites:
-			sprite_stages[sprite] = memory.grassHeight
+			sprite_stages[sprite] = memory.grassHeight 
 			temp = sprite_stages[sprite]
 			if sprite_stages[sprite] > max_stage:
 				sprite_stages[sprite] = max_stage
@@ -41,6 +46,7 @@ func updateGrass():
 
 func _on_cut_button_pressed():
 	# Reset the stage of each sprite to 0
+	SfxController.cut()
 	memory.grassHeight = 0
 	memory.money += temp
 	for sprite in grass_sprites:
@@ -56,5 +62,5 @@ func _on_ShopButton_pressed():
 	
 	get_tree().change_scene("res://Shop.tscn")	
 	
-func _process(delta):
+func _process(delta): # runs every frame
 	updateGrass()
