@@ -11,11 +11,15 @@ var firstTime = true
 var grassHeight: = 0
 var fertilizer ={ # I prefered using a dictionary over making a ton of variables, which I believe will make things less cluttered
 	"cost" : 50,
-	"level": 0
+	"level": 0,
+	# This field actually puts the fertilizer into effect
+	"multiplier": 1
 }
 var irrigation ={
 	"cost" : 50,
-	"level": 0
+	"level": 0,
+	# This field puts the irrigation into effect
+	"multiplier": 1
 }
 var autoGrow = false
 var autoMulti = 1

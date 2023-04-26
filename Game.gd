@@ -31,7 +31,7 @@ func _ready():
 func _input(event): # runs when MOUSE1 is clicked
 	if event is InputEventMouseButton and event.pressed:
 		SfxController.tap()
-		memory.grassHeight += 1
+		memory.grassHeight += 1 * memory.irrigation["multiplier"]
 		updateGrass()
 
 func updateGrass(): # updates the grass' animation state to grassHeight
@@ -48,7 +48,7 @@ func _on_cut_button_pressed():
 	# Reset the stage of each sprite to 0
 	SfxController.cut()
 	memory.grassHeight = 0
-	memory.money += temp
+	memory.money += temp * memory.fertilizer["multiplier"]
 	for sprite in grass_sprites:
 		sprite_stages[sprite] = 0
 		sprite.frame = 0

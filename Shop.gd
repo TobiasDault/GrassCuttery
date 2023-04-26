@@ -24,6 +24,7 @@ func _on_Fertilizer_pressed():
 	if(memory.money >= memory.fertilizer["cost"]): # checks if we can afford this purchase
 		memory.money -= memory.fertilizer["cost"] # subtracts the cost from our balance
 		memory.fertilizer["level"] += 1
+		memory.fertilizer["multiplier"] += 0.5
 		fertilizer_label.text = "Current Level: " + str(memory.fertilizer["level"])
 		memory.fertilizer["cost"] *= 1.05 # arbitrary multiplier for scaling upgrade prices
 		cost1_label.text = "Cost: " + str(int(memory.fertilizer["cost"]))
@@ -34,6 +35,7 @@ func _on_Irrigation_pressed():
 	if(memory.money >= memory.irrigation["cost"]): # checks if we can afford this purchase
 		memory.money -= memory.irrigation["cost"] # subtracts the cost from our balance
 		memory.irrigation["level"] += 1
+		memory.irrigation["multiplier"] += 0.5 # Can be adjusted
 		irrigation_label.text = "Current Level: " + str(memory.irrigation["level"])
 		memory.irrigation["cost"] *= 1.05
 		cost2_label.text = "Cost: " + str(int(memory.irrigation["cost"]))
