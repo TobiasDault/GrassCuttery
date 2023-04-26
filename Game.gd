@@ -25,19 +25,23 @@ func _ready():
 		
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
-		for sprite in grass_sprites:
-			sprite_stages[sprite] += 1
+		grow()
+
+func grow():
+	memory.grassHeight += 1
+	for sprite in grass_sprites:
+			sprite_stages[sprite] = memory.grassHeight
 			temp = sprite_stages[sprite]
 			if sprite_stages[sprite] > max_stage:
 				sprite_stages[sprite] = max_stage
 				temp = max_stage
+
 			sprite.frame = sprite_stages[sprite]
-			
 
 func _on_cut_button_pressed():
 	# Reset the stage of each sprite to 0
+	memory.grassHeight = 0
 	memory.money += temp
-	#print("i: " + str(i))
 	for sprite in grass_sprites:
 		sprite_stages[sprite] = 0
 		sprite.frame = 0
