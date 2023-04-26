@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var grass_sprites = get_tree().get_nodes_in_group("grass-sprites")
-var max_stage = 9
+var max_stage = 19
 var sprite_stages = {}
 
 func _ready():

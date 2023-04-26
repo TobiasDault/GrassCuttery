@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="GrassCuttery3.x"
-run/main_scene="res://Game.tscn"
+run/main_scene="res://MainMenu.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -26,7 +26,7 @@ window/stretch/aspect="keep_width"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/color_picker_text_button/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [global]
 
