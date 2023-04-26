@@ -24,7 +24,7 @@ func _on_Fertilizer_pressed():
 	if(memory.money >= memory.fertilizer["cost"]): # checks if we can afford this purchase
 		memory.money -= memory.fertilizer["cost"] # subtracts the cost from our balance
 		memory.fertilizer["level"] += 1
-		memory.fertilizer["multiplier"] += 0.5
+		memory.fertilizer["multiplier"] += 0.5 # Can be adjusted
 		fertilizer_label.text = "Current Level: " + str(memory.fertilizer["level"])
 		memory.fertilizer["cost"] *= 1.05 # arbitrary multiplier for scaling upgrade prices
 		cost1_label.text = "Cost: " + str(int(memory.fertilizer["cost"]))
@@ -47,7 +47,4 @@ func _on_BackButton_pressed():
 
 
 func _on_AutoGrow_pressed(): # toggles autoGrow feature
-	if(memory.autoGrow):
-		memory.autoGrow = false
-	else:
-		memory.autoGrow = true # there's gotta be some better way to do this, but Godot doesn't have ternary operators...
+	memory.autoGrow = !memory.autoGrow
