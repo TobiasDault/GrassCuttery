@@ -2,6 +2,14 @@ extends Node
 
 var money: = 0
 var grassHeight: = 0
+var fertilizer ={
+	"cost" : 50,
+	"level": 0
+}
+var irrigation ={
+	"cost" : 50,
+	"level": 0
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
