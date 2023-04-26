@@ -19,8 +19,6 @@ func _ready():
 func _on_Fertilizer_pressed():
 	if(memory.money >= memory.fertilizer["cost"]):
 		memory.money -= memory.fertilizer["cost"]
-		#memory.fertilizer.erase("level")
-		#memory.fertilizer["level"] = temp + 1;
 		memory.fertilizer["level"] += 1
 		fertilizer_label.text = "Current Level: " + str(memory.fertilizer["level"])
 		memory.fertilizer["cost"] *= 1.05
@@ -29,11 +27,12 @@ func _on_Fertilizer_pressed():
 	
 	
 func _on_Irrigation_pressed():
-	memory.irrigation["level"] += 1
-	irrigation_label.text = "Current Level: " + str(memory.irrigation["level"])
-	memory.irrigation["cost"] *= 1.05
-	cost2_lable.text = "Cost: " + str(int(memory.irrigation["cost"]))
-	money_label.text = "Money: " + str(memory.money)
+	if(memory.money >= memory.irrigation["cost"]):
+		memory.irrigation["level"] += 1
+		irrigation_label.text = "Current Level: " + str(memory.irrigation["level"])
+		memory.irrigation["cost"] *= 1.05
+		cost2_lable.text = "Cost: " + str(int(memory.irrigation["cost"]))
+		money_label.text = "Money: " + str(memory.money)
 
 func _on_BackButton_pressed():
 # warning-ignore:return_value_discarded
