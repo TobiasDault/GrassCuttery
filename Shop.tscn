@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Fonts/Roboto/Roboto-Black.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Shop.gd" type="Script" id=2]
@@ -10,7 +10,7 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=13]
-size = 47
+size = 30
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
@@ -57,14 +57,20 @@ bg_color = Color( 1, 0, 0, 1 )
 bg_color = Color( 1, 0, 0, 1 )
 
 [sub_resource type="DynamicFont" id=14]
-size = 19
-outline_size = 1
+size = 28
+outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 1, 0.905882, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 1, 0.905882, 0, 1 )
+
 [sub_resource type="DynamicFont" id=15]
-size = 25
-outline_size = 1
+size = 28
+outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
@@ -88,12 +94,13 @@ align = 1
 valign = 1
 
 [node name="MoneyLabel" type="Label" parent="."]
-margin_left = 180.0
-margin_top = 170.0
-margin_right = 350.0
-margin_bottom = 226.0
+margin_left = 172.0
+margin_top = 130.0
+margin_right = 438.0
+margin_bottom = 186.0
 custom_fonts/font = SubResource( 13 )
 text = "Money: "
+align = 1
 
 [node name="FertilizerCont" type="VBoxContainer" parent="."]
 margin_left = -1.0
@@ -141,10 +148,9 @@ align = 1
 valign = 1
 
 [node name="IrrigationCont" type="VBoxContainer" parent="."]
-margin_left = 1.0
-margin_top = 544.0
-margin_right = 575.0
-margin_bottom = 763.0
+margin_top = 500.0
+margin_right = 574.0
+margin_bottom = 670.0
 
 [node name="Description2" type="Label" parent="IrrigationCont"]
 margin_right = 574.0
@@ -199,32 +205,36 @@ custom_styles/normal = SubResource( 11 )
 text = "Back"
 
 [node name="AutoGrowCont" type="VBoxContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = -1.0
+margin_top = 693.0
+margin_right = 575.0
+margin_bottom = 831.0
 
 [node name="Description3" type="Label" parent="AutoGrowCont"]
-margin_right = 154.0
-margin_bottom = 23.0
+margin_right = 576.0
+margin_bottom = 33.0
 custom_fonts/font = SubResource( 14 )
 text = "Rest your fingers!"
+align = 1
 
 [node name="AutoGrow" type="Button" parent="AutoGrowCont"]
-margin_top = 27.0
-margin_right = 154.0
-margin_bottom = 67.0
+margin_top = 37.0
+margin_right = 576.0
+margin_bottom = 77.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 2 )
-custom_styles/hover = SubResource( 8 )
-custom_styles/normal = SubResource( 6 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/normal = SubResource( 16 )
 text = "AutoGrow"
 
 [node name="autoMultiLabel" type="Label" parent="AutoGrowCont"]
-margin_top = 71.0
-margin_right = 154.0
-margin_bottom = 102.0
+margin_top = 81.0
+margin_right = 576.0
+margin_bottom = 114.0
 custom_fonts/font = SubResource( 15 )
+align = 1
 
 [connection signal="pressed" from="FertilizerCont/Fertilizer" to="." method="_on_Fertilizer_pressed"]
 [connection signal="pressed" from="IrrigationCont/Irrigation" to="." method="_on_Irrigation_pressed"]
