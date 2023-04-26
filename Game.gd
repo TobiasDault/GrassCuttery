@@ -11,6 +11,12 @@ func _ready():
 		
 	var CutButton = get_node("CutButton")
 	CutButton.connect("pressed", self, "_on_cut_button_pressed")
+	
+	var BackButton = get_node("BackButton")
+	BackButton.connect("pressed", self, "_on_BackButton_pressed")
+	
+	var ShopButton = get_node("ShopButton")
+	ShopButton.connect("pressed", self, "_on_ShopButton_pressed")
 
 		
 func _input(event):
@@ -27,3 +33,12 @@ func _on_cut_button_pressed():
 	for sprite in grass_sprites:
 		sprite_stages[sprite] = 0
 		sprite.frame = 0
+
+func _on_BackButton_pressed():
+# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://MainMenu.tscn")
+
+func _on_ShopButton_pressed():
+# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://Shop.tscn")	
+	

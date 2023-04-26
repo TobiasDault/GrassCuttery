@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Graphics/soil_tileset.png" type="Texture" id=1]
 [ext_resource path="res://Graphics/grass_frames_sprite_sheet.png" type="Texture" id=2]
 [ext_resource path="res://Game.gd" type="Script" id=3]
 [ext_resource path="res://60719.png" type="Texture" id=4]
+[ext_resource path="res://Fonts/Roboto/Roboto-Black.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Grass_tileset_2.png 0"
@@ -217,6 +218,10 @@ extents = Vector2( 9.5, 17.5 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 9.375, 26 )
 
+[sub_resource type="DynamicFont" id=14]
+size = 30
+font_data = ExtResource( 5 )
+
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -312,9 +317,25 @@ shape = SubResource( 3 )
 [node name="Timer" type="Timer" parent="."]
 
 [node name="CutButton" type="Button" parent="."]
-margin_left = 422.0
-margin_top = 110.0
-margin_right = 516.0
-margin_bottom = 193.0
+margin_left = 435.0
+margin_top = 35.0
+margin_right = 529.0
+margin_bottom = 118.0
 icon = ExtResource( 4 )
 expand_icon = true
+
+[node name="BackButton" type="Button" parent="."]
+margin_top = 24.0
+margin_right = 174.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 14 )
+text = "HOME"
+flat = true
+
+[node name="ShopButton" type="Button" parent="."]
+margin_top = 88.0
+margin_right = 174.0
+margin_bottom = 185.0
+custom_fonts/font = SubResource( 14 )
+text = "SHOP"
+flat = true
