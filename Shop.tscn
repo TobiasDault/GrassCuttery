@@ -83,13 +83,13 @@ margin_bottom = 226.0
 custom_fonts/font = SubResource( 13 )
 text = "Money: "
 
-[node name="VBoxContainer1" type="VBoxContainer" parent="."]
+[node name="FertilizerCont" type="VBoxContainer" parent="."]
 margin_left = -1.0
 margin_top = 307.0
 margin_right = 575.0
 margin_bottom = 458.0
 
-[node name="Description1" type="Label" parent="VBoxContainer1"]
+[node name="Description1" type="Label" parent="FertilizerCont"]
 margin_right = 576.0
 margin_bottom = 33.0
 custom_fonts/font = SubResource( 3 )
@@ -97,7 +97,7 @@ text = "Increase Grass Sell Value"
 align = 1
 valign = 1
 
-[node name="Fertilizer" type="Button" parent="VBoxContainer1"]
+[node name="Fertilizer" type="Button" parent="FertilizerCont"]
 margin_top = 37.0
 margin_right = 576.0
 margin_bottom = 77.0
@@ -110,7 +110,7 @@ custom_styles/hover = SubResource( 7 )
 custom_styles/normal = SubResource( 5 )
 text = "Fertilizer"
 
-[node name="Cost1" type="Label" parent="VBoxContainer1"]
+[node name="Cost1" type="Label" parent="FertilizerCont"]
 margin_top = 81.0
 margin_right = 576.0
 margin_bottom = 114.0
@@ -119,7 +119,7 @@ text = "Cost: 50"
 align = 1
 valign = 1
 
-[node name="Level1" type="Label" parent="VBoxContainer1"]
+[node name="Level1" type="Label" parent="FertilizerCont"]
 margin_top = 118.0
 margin_right = 576.0
 margin_bottom = 151.0
@@ -128,13 +128,13 @@ text = "Current Level: 0"
 align = 1
 valign = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="IrrigationCont" type="VBoxContainer" parent="."]
 margin_left = 1.0
 margin_top = 544.0
 margin_right = 575.0
 margin_bottom = 763.0
 
-[node name="Description2" type="Label" parent="VBoxContainer2"]
+[node name="Description2" type="Label" parent="IrrigationCont"]
 margin_right = 574.0
 margin_bottom = 33.0
 custom_fonts/font = SubResource( 3 )
@@ -142,7 +142,7 @@ text = "Increase Grass Growing Speed"
 align = 1
 valign = 1
 
-[node name="Irrigation" type="Button" parent="VBoxContainer2"]
+[node name="Irrigation" type="Button" parent="IrrigationCont"]
 margin_top = 37.0
 margin_right = 574.0
 margin_bottom = 77.0
@@ -154,7 +154,7 @@ custom_styles/hover = SubResource( 8 )
 custom_styles/normal = SubResource( 6 )
 text = "Irrigation"
 
-[node name="Cost2" type="Label" parent="VBoxContainer2"]
+[node name="Cost2" type="Label" parent="IrrigationCont"]
 margin_top = 81.0
 margin_right = 574.0
 margin_bottom = 114.0
@@ -163,7 +163,7 @@ text = "Cost: 50"
 align = 1
 valign = 1
 
-[node name="Level2" type="Label" parent="VBoxContainer2"]
+[node name="Level2" type="Label" parent="IrrigationCont"]
 margin_top = 118.0
 margin_right = 574.0
 margin_bottom = 151.0
@@ -186,6 +186,28 @@ custom_styles/pressed = SubResource( 10 )
 custom_styles/normal = SubResource( 11 )
 text = "Back"
 
-[connection signal="pressed" from="VBoxContainer1/Fertilizer" to="." method="_on_Fertilizer_pressed"]
-[connection signal="pressed" from="VBoxContainer2/Irrigation" to="." method="_on_Irrigation_pressed"]
+[node name="AutoGrowCont" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Description3" type="Label" parent="AutoGrowCont"]
+margin_right = 150.0
+margin_bottom = 14.0
+text = "Rest your fingers!"
+
+[node name="AutoGrow" type="Button" parent="AutoGrowCont"]
+margin_top = 18.0
+margin_right = 150.0
+margin_bottom = 58.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/normal = SubResource( 6 )
+text = "AutoGrow"
+
+[connection signal="pressed" from="FertilizerCont/Fertilizer" to="." method="_on_Fertilizer_pressed"]
+[connection signal="pressed" from="IrrigationCont/Irrigation" to="." method="_on_Irrigation_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="AutoGrowCont/AutoGrow" to="." method="_on_AutoGrow_pressed"]

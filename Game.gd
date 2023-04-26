@@ -29,6 +29,9 @@ func _input(event):
 
 func grow():
 	memory.grassHeight += 1
+	updateGrass()
+
+func updateGrass():
 	for sprite in grass_sprites:
 			sprite_stages[sprite] = memory.grassHeight
 			temp = sprite_stages[sprite]
@@ -55,3 +58,5 @@ func _on_ShopButton_pressed():
 	
 	get_tree().change_scene("res://Shop.tscn")	
 	
+func _process(delta):
+	updateGrass()
